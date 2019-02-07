@@ -15,13 +15,16 @@ class CreateTableEtudiants extends Migration
     {
         Schema::create('etudiants', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('prenom');
-            $table->string('nom');
-            $table->string('adresse');
-            $table->string('dateNaissance');
-            $table->string('email');
-            $table->string('telephone');
+            $table->string('matricule');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('adresselocal');
             $table->integer('niveau_id')->unsigned();
+            $table->string('birthday');
+            $table->integer('age');
+            $table->string('email');
+            $table->string('tel');
+            
 
             $table->foreign('niveau_id')->references('id')->on('niveaux')->onDelete('restrict')  ->onUpdate('restrict');
 
