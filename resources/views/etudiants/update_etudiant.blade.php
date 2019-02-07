@@ -2,59 +2,63 @@
 
 @section('content')
     <div class="row">
-        <form action="{{ route('etudiant_update') }}" method="post" class="col-6 offset-3">
+        <form action="{{ route('etudiant_add') }}" method="post" class="col-6 offset-3">
             @csrf
 
-            <input type="hidden" name="id" value="{{ $etudiant->id }}" required="required">
+            <label>Matricule</label>
+            <div class="form-group">
+            <input type="text" class="form-control" name="matricule" placeholder="matricule" value="{{etudiant->matricule}}">
+            </div>
+
+            <label>First Name</label>
+            <div class="form-group">
+                <input type="text" class="form-control" name="firstname" placeholder="first name" value="{{etudiant->fistname}}">
+            </div>
             
-            <label>Prenom</label>
+            <label>Last name</label>
             <div class="form-group">
-                <input type="text" class="form-control" name="prenom" placeholder="prenom" required="required"
-                value="{{ $etudiant->prenom }}">
+                <input type="text" class="form-control" name="lastname" placeholder="last name" value="{{etudiant->lastname}}">
             </div>
 
-            <label>Nom</label>
+            <label>Adresse local</label>
             <div class="form-group">
-                <input type="text" class="form-control" name="nom" placeholder="nom" required="required"
-                value="{{ $etudiant->nom }}">
+                <input type="text" class="form-control" name="adresselocal" placeholder="adresse" value="{{etudiant->adresselocal}}">
             </div>
 
-            <label>Adresse</label>
+            <label>Niveu</label>
             <div class="form-group">
-                <input type="text" class="form-control" name="adresse" placeholder="adresse" required="required"
-                value="{{ $etudiant->adresse }}">
-            </div>
-
-            <label>Date de Naissance</label>
-            <div class="form-group">
-                <input type="date" class="form-control" name="dateNaissance" required="required"
-                value="{{ $etudiant->dateNaissance }}">
-            </div>
-
-            <label>Email</label>
-            <div class="form-group">
-                <input type="text" class="form-control" name="email" placeholder="email"  required="required"
-                value="{{ $etudiant->email}}">
-            </div>
-
-            <label>Telephone</label>
-            <div class="form-group">
-                <input type="text" class="form-control" name="telephone" placeholder="telephone"  required="required"
-                value="{{ $etudiant->telephone }}">
-            </div>
-
-             <label>Niveux</label>
-            <div class="form-group">
-                <select name="niveau" class="form-control">
-                    
+                <select name="niveau" class="form-control" value="{{etudiant->niveau}}">
+                     <option>selectionner un niveau</option>
                     @foreach ($niveaux as $niveau)
-                    <option value="{{ $niveau->id }}">{{ $niveau->libelle }}</option>
+                    <option value="{{ $niveau->id }}">{{ $niveau->nom }}</option>
                     @endforeach
                 </select>
             </div>            
 
+
+            <label>Birthday</label>
             <div class="form-group">
-                <button class="btn btn-primary">Enregistrer</button>
+                <input type="date" class="form-control" name="dateNaissance" value="{{etudiant->birthday}}">
+            </div>
+
+            <label>Age</label>
+            <div class="form-group">
+                <input type="text" class="form-control" name="age" placeholder="age" value="{{etudiant->age}}">
+            </div>
+
+            <label>Email</label>
+            <div class="form-group">
+                <input type="text" class="form-control" name="email" placeholder="email" value="{{etudiant->email}}">
+            </div>
+
+            <label>Telephone</label>
+            <div class="form-group">
+                <input type="text" class="form-control" name="tel" placeholder="telephone" value="{{etudiant->tel}}">
+            </div>
+
+             
+            <div class="form-group">
+                <button class="btn btn-primary">Save</button>
             </div>
         </form>
     </div>

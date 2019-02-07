@@ -4,25 +4,46 @@
     <div class="row">
         <form action="{{ route('etudiant_add') }}" method="post" class="col-6 offset-3">
             @csrf
+
+            <label>Matricule</label>
+            <div class="form-group">
+                <input type="text" class="form-control" name="matricule" placeholder="matricule">
+            </div>
+
+            <label>First Name</label>
+            <div class="form-group">
+                <input type="text" class="form-control" name="firstname" placeholder="first name">
+            </div>
             
-            <label>Prenom</label>
+            <label>Last name</label>
             <div class="form-group">
-                <input type="text" class="form-control" name="prenom" placeholder="prenom">
+                <input type="text" class="form-control" name="lastname" placeholder="last name">
             </div>
 
-            <label>Nom</label>
-            <div class="form-group">
-                <input type="text" class="form-control" name="nom" placeholder="nom">
-            </div>
-
-            <label>Adresse</label>
+            <label>Adresse local</label>
             <div class="form-group">
                 <input type="text" class="form-control" name="adresse" placeholder="adresse">
             </div>
 
-            <label>Date de Naissance</label>
+            <label>Niveu</label>
+            <div class="form-group">
+                <select name="niveau" class="form-control">
+                     <option>selectionner un niveau</option>
+                    @foreach ($niveaux as $niveau)
+                    <option value="{{ $niveau->id }}">{{ $niveau->nom }}</option>
+                    @endforeach
+                </select>
+            </div>            
+
+
+            <label>Birthday</label>
             <div class="form-group">
                 <input type="date" class="form-control" name="dateNaissance" >
+            </div>
+
+            <label>Age</label>
+            <div class="form-group">
+                <input type="text" class="form-control" name="age" placeholder="age">
             </div>
 
             <label>Email</label>
@@ -32,21 +53,12 @@
 
             <label>Telephone</label>
             <div class="form-group">
-                <input type="text" class="form-control" name="telephone" placeholder="telephone">
+                <input type="text" class="form-control" name="tel" placeholder="telephone">
             </div>
 
-             <label>Niveux</label>
+             
             <div class="form-group">
-                <select name="niveau" class="form-control">
-                     <option value="null">aucun niveau selectionné</option>
-                    @foreach ($niveaux as $niveau)
-                    <option value="{{ $niveau->id }}">{{ $niveau->libelle }}</option>
-                    @endforeach
-                </select>
-            </div>            
-
-            <div class="form-group">
-                <button class="btn btn-primary">Enregistrer</button>
+                <button class="btn btn-primary">Save</button>
             </div>
         </form>
     </div>
