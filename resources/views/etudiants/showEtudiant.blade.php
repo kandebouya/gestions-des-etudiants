@@ -41,7 +41,7 @@
 	<div class="row">
 			<div class="form-group">
 				<strong>Niveau :</strong>
-				{{$etudiant->niveau->libelle}}
+				{{$etudiant->niveau->nom}}
 			</div>
 	</div>
 

@@ -36,11 +36,11 @@ class UtilisateurController extends Controller
         {
             $user = User::where('id', Input::get('id'))->first();
 
-            $user->prenom = Input::get('prenom');
-            $user->nom = Input::get('nom');
+            $user->firstname = Input::get('firstname');
+            $user->name = Input::get('name');
             $user->email = Input::get('email');
-            $user->prenom = Input::get('prenom');
-            $user->role_id = Input::get('role_id');
+            $user->tel = Input::get('tel');
+            $user->droit = Input::get('droit');
             $user->save();
 
             
@@ -59,7 +59,7 @@ class UtilisateurController extends Controller
     {
        
            User::find($id)->delete();
-            return redirect()->route('listerUtilisateur') ;
+            return redirect()->route('lister_Utilisateur') ;
 
     }
 }

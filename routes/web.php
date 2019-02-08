@@ -21,13 +21,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //routes des users
-Route::get('/listerUtiliateur', 'UtilisateurController@listUser')->name('listerUtilisateur');
+Route::get('/listerUtiliateur', 'UtilisateurController@listUser')->name('lister_Utilisateur');
 
-Route::get('/utilisateur/update', 'UtilisateurController@update')->name('updateUtilisateur');
+Route::get('/utilisateur/update', 'UtilisateurController@update')->name('update_Utilisateur');
 
-Route::put('/utilisateur/edit/{id}', 'UtilisateurController@edit')->name('editUtilisateur')->where('id', '[0-9]+');
+Route::put('/utilisateur/edit/{id}', 'UtilisateurController@edit')->name('edit_Utilisateur')->where('id', '[0-9]+');
 
-Route::get('/utilisateur/delete', 'UtilisateurController@destroy')->name('deleteUtilisateur');
+Route::get('/utilisateur/delete', 'UtilisateurController@destroy')->name('delete_Utilisateur');
 
 
 //route for niveaux

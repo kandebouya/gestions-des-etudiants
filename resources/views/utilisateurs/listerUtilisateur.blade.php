@@ -35,10 +35,10 @@
                                 <td>{{ $user->tel}}</td>
                                 <td>{{ $user->droit}}</td>
                                 <td>
-                                  <a class="btn btn-primary" href="{{ route('updateUtilisateur', ['id' => $user->id ] ) }}">
+                                  <a class="btn btn-primary" href="{{ route('update_Utilisateur', ['id' => $user->id ] ) }}">
                                         edit
                                     </a>
-                                    <a class="btn btn-danger" href="{{ route('deleteUtilisateur', ['id' => $user->id ] ) }}">
+                                    <a class="btn btn-danger" href="{{ route('delete_Utilisateur', ['id' => $user->id ] ) }}">
                                         delete
                                     </a>
                                 </td> 
@@ -46,11 +46,7 @@
                         @endforeach
                         </tbody>
                     </table>
-                @else
-                    <div class="alert alert-danger">
-                        <strong>Pas de demandes dans la base de données</strong>
-                    </div>
-                @endif
+               @endif
             </div>
         </div>
     </div>
