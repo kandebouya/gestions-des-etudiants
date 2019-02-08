@@ -20,29 +20,27 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//users route
-Route::get('/listUser', 'UtilisateurController@listUser')->name('listUser');
+//routes des users
+Route::get('/listerUtiliateur', 'UtilisateurController@listUser')->name('listerUtilisateur');
 
-Route::get('/updateUser', 'UtilisateurController@listUser')->name('updateUser');
+Route::get('/utilisateur/update', 'UtilisateurController@update')->name('updateUtilisateur');
 
-Route::get('/role', 'RegisterController@listRole')->name('listRole');
+Route::put('/utilisateur/edit/{id}', 'UtilisateurController@edit')->name('editUtilisateur')->where('id', '[0-9]+');
 
-Route::put('/updateUser/{id}', 'UtilisateurController@update')->name('updateUser')->where('id', '[0-9]+');
-
-Route::get('/deleteUser', 'UtilisateurController@destroy')->name('deleteUser');
+Route::get('/utilisateur/delete', 'UtilisateurController@destroy')->name('deleteUtilisateur');
 
 
-//route pour les niveaux
+//route for niveaux
 Route::resource('niveaux','NiveauController');
+/***************************** */
 
 
-//Route CRUD d' affectation
-Route::get('/etudiant/create', 'EtudiantController@create')->name('etudiant_create');
-Route::get('/etudiant/edit/{id}', 'EtudiantController@edit')->name('etudiant_edit');
-Route::post('/etudiant/add', 'EtudiantController@add')->name('etudiant_add');
-Route::post('/etudiant/update', 'EtudiantController@update')->name('etudiant_update');
-Route::get('/etudiant/delete/{id}', 'EtudiantController@delete')->name('etudiant_delete');
-Route::get('/etudiant/show/{id}', 'EtudiantController@show')->name('etudiant_show');
+Route::get('/etudiant/nouveau', 'EtudiantController@create')->name('nouveauEtudiant');
+Route::get('/etudiant/edit/{id}', 'EtudiantController@edit')->name('edit_Etudiant');
+Route::post('/etudiant/ajouter', 'EtudiantController@ajouter')->name('etudiant_ajouter');
+Route::post('/etudiant/update', 'EtudiantController@update')->name('update_etudiant');
+Route::get('/etudiant/delete/{id}', 'EtudiantController@delete')->name('supprimer_etudiant');
+Route::get('/DetailsEtudiant/show/{id}', 'EtudiantController@show')->name('etudiant_details');
 
 
-Route::get('/etudiant/index', 'EtudiantController@index')->name('list_etudiant');
+Route::get('/etudiant/index', 'EtudiantController@index')->name('listerEtudiant');

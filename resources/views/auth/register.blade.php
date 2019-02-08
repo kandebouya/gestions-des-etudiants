@@ -12,21 +12,21 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Prenom</label>
+                            <label for="firstname" class="col-md-4 col-form-label text-md-right">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="prenom" type="text" class="form-control{{ $errors->has('prenom') ? ' is-invalid' : '' }}" name="prenom" value="{{ old('prenom') }}" required autofocus>
+                                <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required autofocus>
 
-                                @if ($errors->has('prenom'))
+                                @if ($errors->has('firstname'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('prenom') }}</strong>
+                                        <strong>{{ $errors->first('firstname') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Nom</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Last Name</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
@@ -54,23 +54,34 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="tel" class="col-md-4 col-form-label text-md-right">Telephone</label>
+
+                            <div class="col-md-6">
+                                <input id="tel" type="text" class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}" name="tel" value="{{ old('tel') }}" required>
+
+                                @if ($errors->has('tel'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('tel') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
                             
-                            <label for="role_id" class="col-md-4 col-form-label text-md-right">Role</label>
+                            <label for="droit" class="col-md-4 col-form-label text-md-right">Droit</label>
                            
                             <div class="col-md-6">
-                                <select name="role_id" id="role_id" class="form-control{{ $errors->has('role_id') ? ' is-invalid' : '' }}">
-                                         <option >selectionner un role pour cet utilisateur</option>
+                                <select name="droit" id="droit" class="form-control{{ $errors->has('droit') ? ' is-invalid' : '' }}">
+                                         <option >aucun role selectionner</option>
                                          <option value="Admin" >Admin</option>
-                                         <option value="Professeur" >Professeur</option>
-                                         <option value="Etudiants" >Etudiant</option>
+                                         <option value="Secretaire" >Secretaire</option>
+                                         <option value="Assistant">Assistant</option>
                                         
                                 </select>
                             </div>    
                       </div>
-
-
-
-
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

@@ -19,7 +19,7 @@ class EtudiantController extends Controller
          if(Auth::check())
         {
 
-            return view('etudiants.list_etudiant',
+            return view('etudiants.listerEtudiant',
             [
                 'etudiants' => Etudiant::all()
             ]);
@@ -31,7 +31,7 @@ class EtudiantController extends Controller
     {
          if(Auth::check())
         {
-            return view('etudiants.add_etudiant',
+            return view('etudiants.ajouterEtudiant',
             [
                
                 'niveaux'=>Niveau::all(),
@@ -49,7 +49,7 @@ class EtudiantController extends Controller
         {
 
             $etudiant = Etudiant::where('id', $id)->first();
-            return view('etudiants.update_etudiant',
+            return view('etudiants.updateEtudiant',
                 [
                     'etudiant' => $etudiant,               
                     'niveaux'=>Niveau::all()
@@ -61,39 +61,24 @@ class EtudiantController extends Controller
         return view('auth.login');    
     }
 
-    public function store(Request $request)
-    {
-         if(Auth::check())
-        {
 
-            $etudiant = Etudiant::create($request->all());
-
-             return redirect()->route('etudiants') ;
-
-
-        }
-        return view('auth.login');   
-    }
-
-
-    public function add()
+    public function ajouter()
       {
         if(Auth::check())
         {
                 $etudiant = new Etudiant();
 
-                $etudiant->prenom = Input::get('prenom');
-                $etudiant->nom = Input::get('nom');
-                $etudiant->adresse = Input::get('adresse');
-                $etudiant->dateNaissance = Input::get('dateNaissance');
-                $etudiant->email= Input::get('email');
-                $etudiant->telephone = Input::get('telephone');
+                $etudiant->matricule = Input::get('matricule');
+                $etudiant->firstname = Input::get('firstname');
+                $etudiant->lastname = Input::get('lastname');
+                $etudiant->adresselocal = Input::get('adresselocal');
                 $etudiant->niveau_id = Input::get('niveau');
-               
-                $etudiant->save();
-
-                
-                return redirect()->route('list_etudiant') ;
+                $etudiant->birthday = Input::get('birthday');
+                $etudiant->age = Input::get('age');
+                $etudiant->email= Input::get('email');
+                $etudiant->tel = Input::get('tel');              
+                $etudiant->save();             
+                return redirect()->route('listerEtudiant') ;
          }
 
         return view('auth.login');     
@@ -109,20 +94,18 @@ class EtudiantController extends Controller
             $etudiant = Etudiant::where('id', Input::get('id'))->first();
 
            
-                $etudiant->prenom = Input::get('prenom');
-                $etudiant->nom = Input::get('nom');
-                $etudiant->adresse = Input::get('adresse');
-                $etudiant->dateNaissance = Input::get('dateNaissance');
-                $etudiant->email= Input::get('email');
-                $etudiant->telephone = Input::get('telephone');
-                $etudiant->niveau_id = Input::get('niveau');
-               
-                $etudiant->save();
-
-                
-               // return redirect('etudiants.index');
-             return redirect()->route('list_etudiant') ;
-
+            $etudiant->matricule = Input::get('matricule');
+            $etudiant->firstname = Input::get('firstname');
+            $etudiant->lastname = Input::get('lastname');
+            $etudiant->adresselocal = Input::get('adresselocal');
+            $etudiant->niveau_id = Input::get('niveau');
+            $etudiant->birthday = Input::get('birthday');
+            $etudiant->age = Input::get('age');
+            $etudiant->email= Input::get('email');
+            $etudiant->tel = Input::get('tel');
+            
+            $etudiant->save();
+             return redirect()->route('listerEtudiant') ;
          }
 
         return view('auth.login');       
@@ -131,13 +114,9 @@ class EtudiantController extends Controller
 
     public function show($id)
     {
-        if(Auth::check())
-        {
         
             $etudiant  =Etudiant::find($id);
-            return view('etudiants.show',compact('etudiant'));
-        }
-        return view('auth.login');     
+            return view('etudiants.showEtudiant',compact('etudiant'));
             
     }
 
@@ -149,7 +128,7 @@ class EtudiantController extends Controller
         $etudiant = Etudiant::where('id', $id)->first();
         $etudiant->forceDelete();
 
-        return redirect()->route('list_etudiant') ;
+        return redirect()->route('listerEtudiant') ;
 
         }
 

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <form action="{{ route('etudiant_add') }}" method="post" class="col-6 offset-3">
+        <form action="{{ route('etudiant_ajouter') }}" method="post" class="col-6 offset-3">
             @csrf
 
             <label>Matricule</label>
@@ -22,7 +22,7 @@
 
             <label>Adresse local</label>
             <div class="form-group">
-                <input type="text" class="form-control" name="adresse" placeholder="adresse">
+                <input type="text" class="form-control" name="adresselocal" placeholder="adresse">
             </div>
 
             <label>Niveu</label>
@@ -38,7 +38,7 @@
 
             <label>Birthday</label>
             <div class="form-group">
-                <input type="date" class="form-control" name="dateNaissance" >
+                <input type="date" class="form-control" name="birthday" >
             </div>
 
             <label>Age</label>

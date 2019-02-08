@@ -11,7 +11,7 @@
             <i class="fa fa-user"></i>
                 <h5 class="card-title">Gestions des uitlisateurs</h5>
              
-                <a href="/listUser" class="btn btn-primary">Go</a>
+                <a href="/listerUtiliateur" class="btn btn-primary">Go</a>
             </div>
         </div>
       

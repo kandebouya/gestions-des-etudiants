@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class UtilisateurController extends Controller
 {
     public function listUser()
     {
-        return view('utilisateurs.list_user',
+        return view('utilisateurs.listerUtilisateur',
             [
                 'users' => User::all()
             ]);
@@ -19,7 +21,7 @@ class UtilisateurController extends Controller
 
     {
             $user = User::where('id', $id)->first();
-            return view('utilisateurs.update_user',
+            return view('utilisateurs.updateUtilisateur',
                 [
                     'user' => $user
                 ]
@@ -42,7 +44,7 @@ class UtilisateurController extends Controller
             $user->save();
 
             
-             return redirect('utlisateurs.list_user');
+             return redirect('utlisateurs.listerUtilisateur');
         }
 
         return view('auth.login');      
@@ -57,7 +59,7 @@ class UtilisateurController extends Controller
     {
        
            User::find($id)->delete();
-            return redirect()->route('etudiants.list_user') ;
+            return redirect()->route('listerUtilisateur') ;
 
     }
 }

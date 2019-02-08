@@ -7,20 +7,22 @@
             <div class="col-8 offset-2">
 
             <div class="">
-                <a class="btn btn-primary" href="{{ route('etudiant_create') }}">Nouveau Etudiant</a>
+                <a class="btn btn-primary" href="{{ route('nouveauEtudiant') }}">Nouveau Etudiant</a>
             </div>
                 
                 @if (count($etudiants) > 0)
                     <table class="table table-responsive">
                         <thead>
                             <th with="80px">No</th>
-                            <th>Prenom</th>
-                            <th>Nom</th>
+                            <th>Matricule</th>
+                            <th>First name</th>
+                            <th>last name</th>
                             <th>Adresse</th>
-                            <th>Date Naissance</th>
+                            <th>Niveau</th>
+                            <th>Birthday</th>
+                            <th>Age</th>
                             <th>Email</th>
                             <th>Telephone</th>
-                            <th>Niveau</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -28,23 +30,24 @@
                         @foreach ($etudiants as $etudiant)
                             <tr>
                                 <td>{{ $etudiant->id }}</td>
-                                <td>{{ $etudiant->prenom }}</td>
-                                <td>{{ $etudiant->nom }}</td>
-                                <td>{{ $etudiant->adresse }}</td>
-                                <td>{{ $etudiant->dateNaissance }}</td>
+                                <td>{{ $etudiant->matricule}}</td>
+                                <td>{{ $etudiant->firstname}}</td>
+                                <td>{{ $etudiant->lastname }}</td>
+                                <td>{{ $etudiant->adresselocal }}</td>
+                                <td> {{$etudiant->niveau->nom}} </td>
+                                <td>{{ $etudiant->birthday }}</td>
+                                <td>{{ $etudiant->age }}</td>
                                 <td>{{ $etudiant->email }}</td>
-                                <td>{{ $etudiant->telephone }}</td>
-                              
-                               <td> @if(!empty($etudiant)) {{$etudiant->niveau->libelle}}  @endif</td>
+                                <td>{{ $etudiant->tel }}</td>
                                 <td>
 
-                                     <a class="btn btn-primary" href="{{ route('etudiant_show', ['id' => $etudiant->id ] ) }}">
+                                     <a class="btn btn-primary" href="{{ route('etudiant_details', ['id' => $etudiant->id ] ) }}">
                                         views
                                     </a>
-                                    <a class="btn btn-success" href="{{ route('etudiant_edit', ['id' => $etudiant->id ] ) }}">
+                                    <a class="btn btn-success" href="{{ route('edit_Etudiant', ['id' => $etudiant->id ] ) }}">
                                         edit
                                     </a>
-                                    <a class="btn btn-danger" href="{{ route('etudiant_delete', ['id' => $etudiant->id ] ) }}">
+                                    <a class="btn btn-danger" href="{{ route('supprimer_etudiant', ['id' => $etudiant->id ] ) }}">
                                         delete
                                     </a>
                                 </td>

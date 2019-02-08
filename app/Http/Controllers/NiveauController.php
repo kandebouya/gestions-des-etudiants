@@ -35,10 +35,11 @@ class NiveauController extends Controller
         if(Auth::check())
         {
         $this->validate($request,[
-            'libelle'=>'required|string|max:255',            
+            'nom'=>'required|string|max:255',
+            'description'=>'required|string|max:255',            
             ]);
         Niveau::create($request->all());
-        return redirect()->route('niveaux.index')->with('success','le niveau a bien été enrégistrée!!') ;
+        return redirect()->route('niveaux.index')->with('success','niveau created successfull') ;
 
         }
         return view('auth.login'); 
@@ -60,11 +61,12 @@ class NiveauController extends Controller
         if(Auth::check())
         {
         $this->validate($request,[
-            'libelle'=>'required|string|max:255',
+            'nom'=>'required|string|max:255',
+            'description'=>'required|string|max:255',   
            
             ]);
        Niveau::find($id)->update($request->all());
-        return redirect()->route('niveaux.index')->with('success','Niveau modifié avec success') ;
+        return redirect()->route('niveaux.index')->with('success','niveau updated') ;
 
         }
         return view('auth.login'); 
@@ -76,7 +78,7 @@ class NiveauController extends Controller
         if(Auth::check())
         {
             Niveau::find($id)->delete();
-            return redirect()->route('niveaux.index')->with('success','niveaux bien supprimé') ;
+            return redirect()->route('niveaux.index')->with('success','niveau deleted') ;
 
         }
         return view('auth.login'); 

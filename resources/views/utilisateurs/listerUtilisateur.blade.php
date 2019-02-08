@@ -17,10 +17,11 @@
                     <table class="table table-responsive">
                         <thead>
                             <th with="80px">No</th>
-                            <th>Prenom</th>
-                            <th>Nom</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
                             <th>Email</th>
-                            <th>Role</th>
+                            <th>Telephone</th>
+                            <th>Droit</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -28,15 +29,16 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td>{{ $user->id }}</td>
-                                <td>{{ $user->prenom }}</td>
+                                <td>{{ $user->firstname }}</td>
                                 <td>{{ $user->name}}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->role_id }}</td>
+                                <td>{{ $user->tel}}</td>
+                                <td>{{ $user->droit}}</td>
                                 <td>
-                                  <a class="btn btn-primary" href="{{ route('updateUser', ['id' => $user->id ] ) }}">
+                                  <a class="btn btn-primary" href="{{ route('updateUtilisateur', ['id' => $user->id ] ) }}">
                                         edit
                                     </a>
-                                    <a class="btn btn-danger" href="{{ route('deleteUser', ['id' => $user->id ] ) }}">
+                                    <a class="btn btn-danger" href="{{ route('deleteUtilisateur', ['id' => $user->id ] ) }}">
                                         delete
                                     </a>
                                 </td> 

@@ -1,15 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			{{  Form::open(['route'=>'niveaux.store','method'=>'POST']) }}
-				@include('niveaux.form_master');
+    <section id="main-content">
+      <section class="wrapper">
+         <div class="row mt">
+            <div class="col-lg-12">
+                <div class="form-panel">
+                    <div class="panel" >
+                        <div class="panel-header">
+                            <h2>Ajout Niveau</h2>
+                        </div>
 
-			{{ form::close() }}
+                        <div class="panel-body">
+                          {{  Form::open(['route'=>'niveaux.store','method'=>'POST']) }}
+                            @include('niveaux.form');
 
-		</div>
-	</div>
+                          {{ form::close() }}
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
 
-@endsection
+        <!-- /row -->
+      </section>
+       @endsection      
+   
